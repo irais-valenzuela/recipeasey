@@ -33,10 +33,9 @@ const Result = () => {
           mealTime,
           mealType,
         });
-        console.log('data', data)
         setResults(data);
         setLoading(false);
-      } catch (error) {
+      } catch (error) {   
         console.log(error);
       }
     }
