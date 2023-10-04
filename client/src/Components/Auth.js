@@ -19,7 +19,7 @@ const Auth = () => {
 
   const getUserInfo = async (token) => {
     try {
-      const { data } = await instance.get("http://localhost:3005/api/login/auth", {
+      const { data } = await instance.get("/login/auth", {
         headers: {
           authorization: token,
         },
@@ -66,16 +66,16 @@ const Auth = () => {
 
     const signIn = async () => {
       let token;
-      console.log('in sbumit ')
+      console.log('in submit')
       try {
         if (signUpForm) {
           let { data } = await instance.post(
-            "login/auth/signup",
+            "/login/auth/signup",
             credentials
           );
           token = data.token;
         } else {
-          let { data } = await instance.post("login/auth", credentials);
+          let { data } = await instance.post("/login/auth", credentials);
           token = data.token;
         }
         window.localStorage.setItem("token", token);
