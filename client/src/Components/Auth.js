@@ -75,6 +75,7 @@ const Auth = () => {
             "/login/auth/signup",
             credentials
           );
+          console.log('data ====>', data.token)
           token = data.token;
         } else {
           let { data } = await instance.post("/login/auth", credentials);
