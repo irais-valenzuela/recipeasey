@@ -81,6 +81,7 @@ const Auth = () => {
         window.localStorage.setItem("token", token);
 
         const info = await getUserInfo(token);
+        console.log('created USER!')
         setUserInfo(info);
       } catch (err) {
         if (!username || !password) setError("Email and Password required");
