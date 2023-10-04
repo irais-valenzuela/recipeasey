@@ -33,6 +33,7 @@ const Result = () => {
           mealTime,
           mealType,
         });
+        console.log('data', data)
         setResults(data);
         setLoading(false);
       } catch (error) {
