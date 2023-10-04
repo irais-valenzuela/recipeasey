@@ -38,7 +38,7 @@ const SingleRecipe = () => {
 
     async function fetchSingleRecipe() {
       try {
-        const { data } = await instance.get(`/recipes/${id}`);
+        const { data } = await instance.get(`/api/recipes/${id}`);
         setRecipeObject(data);
         setLoading(false);
         window.localStorage.removeItem("recipeId");
@@ -76,7 +76,7 @@ const SingleRecipe = () => {
     const token = window.localStorage.getItem("token");
     try {
       const { data } = await instance.post(
-        `/users/userRecipes/${token}`,
+        `/api/users/userRecipes/${token}`,
         recipeObject
       );
       if (data === "Already saved") setMessage(data);

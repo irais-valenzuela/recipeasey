@@ -19,7 +19,7 @@ const Auth = () => {
 
   const getUserInfo = async (token) => {
     try {
-      const { data } = await instance.get("/login/auth", {
+      const { data } = await instance.get("/api/login/auth", {
         headers: {
           authorization: token,
         },
@@ -72,13 +72,13 @@ const Auth = () => {
       try {
         if (signUpForm) {
           let { data } = await instance.post(
-            "/login/auth/signup",
+            "/api/login/auth/signup",
             credentials
           );
           console.log('data ====>', data.token)
           token = data.token;
         } else {
-          let { data } = await instance.post("/login/auth", credentials);
+          let { data } = await instance.post("/api/login/auth", credentials);
           token = data.token;
         }
         window.localStorage.setItem("token", token);
