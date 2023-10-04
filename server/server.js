@@ -16,25 +16,21 @@ app.use(cors({
 }));
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use('/api', router)
 
-// app.use(express.urlencoded({ extended: true }));
 
 // uncomment when pushing
-// app.use(express.static(path.join(__dirname, "../build")));
+app.use(express.static(path.join(__dirname, "../build")));
 
-// app.get("", function (req, res) {
-//   res.sendFile(path.join(__dirname, "../build", "index.html"));
-// });
+app.get("", function (req, res) {
+  res.sendFile(path.join(__dirname, "../build", "index.html"));
+});
 
 // when working locally use this
 // app.use(express.static(path.join(__dirname, "../public")));
-app.get("/", (req, res) => {
-  res.send('making it to backend api')
-})
 
-// app.use("/api", router);
 
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "../public", "index.html"));
