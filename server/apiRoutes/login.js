@@ -29,6 +29,7 @@ loginRouter.post("/auth/signup", async (req, res, next) => {
       username,
       password,
     });
+    console.log('created user!')
     res.send({ token: await user.generateToken() });
   } catch (err) {
     next(err);

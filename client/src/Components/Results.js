@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
-import axios from "axios";
+// import axios from "axios";
+import instance from "../Axios/AxiosInstance"
 
 const Result = () => {
   const [results, setResults] = useState("");
@@ -27,7 +28,7 @@ const Result = () => {
 
     async function fetchData() {
       try {
-        const { data } = await axios.post("http://localhost:3005/api/recipes", {
+        const { data } = await instance.post("/recipes", {
           cuisineType,
           mealTime,
           mealType,

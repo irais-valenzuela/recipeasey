@@ -5,7 +5,8 @@ import Spinner from "react-bootstrap/Spinner";
 import SimilarRecipes from "./SimilarRecipes";
 import AuthModal from "./AuthModal";
 import { IsLoggedInContext } from "../App";
-import axios from "axios";
+// import axios from "axios";
+import instance from "../Axios/AxiosInstance"
 import moment from "moment";
 
 const SingleRecipe = () => {
@@ -37,7 +38,7 @@ const SingleRecipe = () => {
 
     async function fetchSingleRecipe() {
       try {
-        const { data } = await axios.get(`http://localhost:3005/api/recipes/${id}`);
+        const { data } = await instance.get(`/recipes/${id}`);
         setRecipeObject(data);
         setLoading(false);
         window.localStorage.removeItem("recipeId");
@@ -74,8 +75,8 @@ const SingleRecipe = () => {
   const handleSave = async () => {
     const token = window.localStorage.getItem("token");
     try {
-      const { data } = await axios.post(
-        `http://localhost:3005/api/users/userRecipes/${token}`,
+      const { data } = await instance.post(
+        `/users/userRecipes/${token}`,
         recipeObject
       );
       if (data === "Already saved") setMessage(data);
