@@ -4,9 +4,14 @@ const path = require("path");
 const router = require("./apiRoutes")
 const cors = require("cors")
 
-const allowedOrigin = process.env.NODE_ENV === 'production'
-  ? 'https://recipeasey-diry.onrender.com/'
-  : 'http://localhost:3000'; 
+
+// uncomment in development
+// const allowedOrigin = process.env.NODE_ENV === 'production'
+//   ? 'https://recipeasey-diry.onrender.com/'
+//   : 'http://localhost:3000'; 
+
+const allowedOrigin = 'https://recipeasey-diry.onrender.com/'
+
 
 app.use(cors({
   origin: allowedOrigin, // Replace with your frontend's URL
