@@ -35,9 +35,10 @@ const Auth = () => {
     if (token) {
       getUserInfo(token).then((userInfo) => {
         if (
-          !window.localStorage.getItem("Single Recipe Link") &&
-          userInfo.username 
+          userInfo.username &&
+          !window.localStorage.getItem("Single Recipe Link")
         ) {
+          console.log('navigating to userdashboard?')
           navigate("/userdashboard", { state: { query: { userInfo } } });
         } else if (
           userInfo.username &&
