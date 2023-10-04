@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
-import axios from "axios";
+// import axios from "axios";
+import instance from '../Axios/AxiosInstance'
 import UserRecipes from "./UserRecipes";
 import { IsLoggedInContext } from "../App";
 import DndCalendar from "./DnDCalendar";
@@ -17,7 +18,7 @@ const UserDashboard = () => {
     async function getUser() {
       try {
         const token = window.localStorage.getItem("token");
-        const { data } = await axios.get(`http://localhost:3005/api/users/${token}`);
+        const { data } = await instance.get(`/users/${token}`);
         setUserName(data);
       } catch (error) {
         console.log(error);
@@ -30,7 +31,7 @@ const UserDashboard = () => {
     async function fetchData() {
       try {
         const token = window.localStorage.getItem("token");
-        const { data } = await axios.get(`http://localhost:3005/api/users/userRecipes/${token}`);
+        const { data } = await instance.get(`/users/userRecipes/${token}`);
         setSavedRecipes(data);
       } catch (error) {
         console.log(error);
@@ -42,8 +43,8 @@ const UserDashboard = () => {
   const handleViewDelete = async (recipeId) => {
     try {
       const token = window.localStorage.getItem("token");
-      const { data } = await axios.delete(
-        `http://localhost:3005/api/users/deleteRecipe/${token}/${recipeId}`
+      const { data } = await instance.delete(
+        `/users/deleteRecipe/${token}/${recipeId}`
       );
       setSavedRecipes(data);
     } catch (error) {
