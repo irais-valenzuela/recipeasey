@@ -6,11 +6,9 @@ const cors = require("cors")
 
 
 // uncomment in development
-// const allowedOrigin = process.env.NODE_ENV === 'production'
-//   ? 'https://recipeasey-diry.onrender.com/'
-//   : 'http://localhost:3000'; 
-
-const allowedOrigin = 'https://recipeasey-diry.onrender.com/'
+const allowedOrigin = process.env.NODE_ENV === 'production'
+  ? 'https://recipeasey-diry.onrender.com/'
+  : 'http://localhost:3000'; 
 
 
 app.use(cors({

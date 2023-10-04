@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
+import instance from '../Axios/AxiosInstance'
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import { IsLoggedInContext } from "../App";
 
 const Auth = () => {
@@ -18,7 +19,7 @@ const Auth = () => {
 
   const getUserInfo = async (token) => {
     try {
-      const { data } = await axios.get("http://localhost:3005/api/login/auth", {
+      const { data } = await instance.get("http://localhost:3005/api/login/auth", {
         headers: {
           authorization: token,
         },
@@ -68,13 +69,13 @@ const Auth = () => {
       console.log('in sbumit ')
       try {
         if (signUpForm) {
-          let { data } = await axios.post(
-            "http://localhost:3005/api/login/auth/signup",
+          let { data } = await instance.post(
+            "login/auth/signup",
             credentials
           );
           token = data.token;
         } else {
-          let { data } = await axios.post("http://localhost:3005/api/login/auth", credentials);
+          let { data } = await instance.post("login/auth", credentials);
           token = data.token;
         }
         window.localStorage.setItem("token", token);
