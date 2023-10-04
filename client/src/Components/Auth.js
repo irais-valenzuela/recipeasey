@@ -30,8 +30,9 @@ const Auth = () => {
     }
   };
 
-  useEffect(() => {
+  const goToUserDashboard = () => {
     const token = window.localStorage.getItem("token");
+    console.log('made it here')
     if (token) {
       getUserInfo(token).then((userInfo) => {
         if (
@@ -58,7 +59,7 @@ const Auth = () => {
         loginContext.setLoggedIn(true);
       });
     }
-  }, [userInfo]);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -84,6 +85,7 @@ const Auth = () => {
         const info = await getUserInfo(token);
         console.log('created USER!')
         setUserInfo(info);
+        goToUserDashboard()
       } catch (err) {
         if (!username || !password) setError("Email and Password required");
         else if (err.response.status === 401)
