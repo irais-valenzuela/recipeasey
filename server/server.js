@@ -7,7 +7,7 @@ const cors = require("cors")
 
 // uncomment in development
 const allowedOrigin = process.env.NODE_ENV === 'production'
-  ? 'https://recipeasey-diry.onrender.com/api'
+  ? 'https://recipeasey-diry.onrender.com'
   : 'http://localhost:3000'; 
 
 
