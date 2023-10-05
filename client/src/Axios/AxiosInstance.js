@@ -1,7 +1,10 @@
-import axios from 'axios';
+import axios from "axios";
 
 const instance = axios.create({
-  baseURL: 'https://recipeasey-diry.onrender.com'
+  baseURL:
+    process.env.NODE_ENV === "production"
+      ? "https://recipeasey-diry.onrender.com"
+      : "http://localhost:3005",
 });
 
 export default instance;
