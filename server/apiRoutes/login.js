@@ -1,11 +1,8 @@
 const loginRouter = require("express").Router();
 const { User } = require("../database/index");
-console.log('running file =>>>>>>')
 
 loginRouter.post("/auth", async (req, res, next) => {
   try {
-    // console.log('IN HERE')
-    // res.send("in user login route")
     res.send({ token: await User.authenticate(req.body)});
   } catch (err) {
     console.log('error')

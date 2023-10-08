@@ -3,6 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import instance from '../Axios/AxiosInstance';
 
 const SimilarRecipes = (props) => {
   const [similarRecipes, setSimilarRecipes] = useState([]);
@@ -12,8 +13,8 @@ const SimilarRecipes = (props) => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const { data } = await axios.get(
-          `http://localhost:3005/api/recipes/similarRecipes/${recipeId}`
+        const { data } = await instance.get(
+          `/recipes/similarRecipes/${recipeId}`
         );
         setSimilarRecipes(data);
       } catch (error) {

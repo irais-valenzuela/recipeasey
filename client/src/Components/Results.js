@@ -28,7 +28,7 @@ const Result = () => {
 
     async function fetchData() {
       try {
-        const { data } = await instance.post("/api/recipes", {
+        const { data } = await instance.post("/recipes", {
           cuisineType,
           mealTime,
           mealType,

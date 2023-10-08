@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const CuisineForm = (props) => {
   let setCuisineType = props.setCuisineType

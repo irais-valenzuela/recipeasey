@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDrop } from "react-dnd";
 import { BsFillTrash3Fill } from "react-icons/bs";
+import instance from '../Axios/AxiosInstance';
 
 const daysOfTheWeek = [
   "Monday",
@@ -73,8 +74,8 @@ const DnDCalendar = ({ savedRecipes, setSavedToast }) => {
     const fetchExistingRecipes = async () => {
       try {
         const token = window.localStorage.getItem("token");
-        const { data } = await axios.get(
-          `http://localhost:3005/api/users/addRecipesToCalendar/${token}`
+        const { data } = await instance.get(
+          `/users/addRecipesToCalendar/${token}`
         );
         setRecipeByDay(data && data);
       } catch (error) {
@@ -123,8 +124,8 @@ const DnDCalendar = ({ savedRecipes, setSavedToast }) => {
     try {
       setSavedToast(true);
       const token = window.localStorage.getItem("token");
-      const response = await axios.post(
-        `http://localhost:3005/api/users/addRecipesToCalendar/${token}`,
+      const response = await instance.post(
+        `/users/addRecipesToCalendar/${token}`,
         recipeByDay
       );
     } catch (error) {
@@ -135,8 +136,8 @@ const DnDCalendar = ({ savedRecipes, setSavedToast }) => {
   const handleClear = async () => {
     try {
       const token = window.localStorage.getItem("token");
-      const response = await axios.delete(
-        `http://localhost:3005/api/users//deleteUserCalendar/${token}`
+      const response = await instance.delete(
+        `/users//deleteUserCalendar/${token}`
       );
 
       if (response.status) {

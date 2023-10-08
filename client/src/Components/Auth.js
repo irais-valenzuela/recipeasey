@@ -19,7 +19,7 @@ const Auth = () => {
 
   const getUserInfo = async (token) => {
     try {
-      const { data } = await instance.get("/api/login/auth", {
+      const { data } = await instance.get("/login/auth", {
         headers: {
           authorization: token,
         },
@@ -32,14 +32,12 @@ const Auth = () => {
 
   const goToUserDashboard = () => {
     const token = window.localStorage.getItem("token");
-    console.log('made it here')
     if (token) {
       getUserInfo(token).then((userInfo) => {
         if (
           userInfo.username &&
           !window.localStorage.getItem("Single Recipe Link")
         ) {
-          console.log('navigating to userdashboard?')
           navigate("/userdashboard", { state: { query: { userInfo } } });
         } else if (
           userInfo.username &&
@@ -68,23 +66,20 @@ const Auth = () => {
 
     const signIn = async () => {
       let token;
-      console.log('in submit')
       try {
         if (signUpForm) {
           let { data } = await instance.post(
-            "/api/login/auth/signup",
+            "/login/auth/signup",
             credentials
           );
-          console.log('data ====>', data.token)
           token = data.token;
         } else {
-          let { data } = await instance.post("/api/login/auth", credentials);
+          let { data } = await instance.post("/login/auth", credentials);
           token = data.token;
         }
         window.localStorage.setItem("token", token);
 
         const info = await getUserInfo(token);
-        console.log('created USER!')
         setUserInfo(info);
         goToUserDashboard()
       } catch (err) {
