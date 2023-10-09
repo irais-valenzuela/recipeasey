@@ -93,13 +93,17 @@
   .heading-3 {
     font-size: 22px;
     font-weight: bold;
+    margin: 0;
+    padding: 1.5px;
   }
 
   .landing-page-p {
     font-size: 15px;
     width: auto;
-    padding: 0.5rem;
+    padding: 5px;
     font-weight: bolder;
+    margin: 0;
+
   }
 }
 
