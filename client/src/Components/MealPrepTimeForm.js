@@ -11,7 +11,6 @@ const MealPrepTimeForm = (props) => {
       <label htmlFor="time"></label>
       <select name="time" id="time" onChange={handleChange}>
       <option value="select">select</option>
-        <option value="15mins">15 mins</option>
         <option value="30mins">30 mins</option>
         <option value="45mins">45 mins</option>
         <option value="60mins">60 mins</option>

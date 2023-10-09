@@ -56,6 +56,7 @@ function InitialQueryModal() {
         className="get-started-button bold-text"
         variant="success"
         onClick={handleShow}
+        size="lg"
       >
         Get Started
       </Button>
@@ -63,16 +64,16 @@ function InitialQueryModal() {
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title className="bold-text">
-            Tell us more about your meal plans
+            Tell us more about your meal plans.
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="bold-text-for-modal center-question">
           {firstQuestion ? (
-            <h5>1. Pick your cuisine</h5>
+            <h5>1. Pick your cuisine.</h5>
           ) : secondQuestion ? (
-            <h5>2. Pick breakfast, lunch, dinner</h5>
+            <h5>2. Pick either breakfast, lunch, dinner.</h5>
           ) : (
-            <h5>3. Pick how much time you'd like to spend on cooking</h5>
+            <h5>3. Pick how much time you'd like to spend cooking.</h5>
           )}
         </Modal.Body>
         {firstQuestion ? (

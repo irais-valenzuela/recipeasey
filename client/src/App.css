@@ -80,7 +80,7 @@
 
 /* Carousel */
 .heading-3 {
-  font-size: 60px;
+  font-size: 45px;
   color: white;
   background-color: rgb(238, 95, 95);
   border-radius: 25px;
@@ -99,7 +99,7 @@
     font-size: 15px;
     width: auto;
     padding: 0.5rem;
-    font-weight: bold;
+    font-weight: bolder;
   }
 }
 
@@ -802,4 +802,11 @@ DashBoard  */
 .eb-image {
   border-radius: 20px;
   height: 400px;
+}
+
+.flex-getstarted {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
 }

@@ -19,10 +19,9 @@ function AppCarousel(props) {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3 className="heading-3">Need meal plan ideas?</h3>
+          <h3 className="heading-3">Looking for Meal Planning Inspiration?</h3>
           <p className="landing-page-p">
-            Not knowing what to cook is a pain. <br /> Let us do all the
-            thinking for you.
+            Eliminate the Dilemma of What to Cook <br /> We've Got You Covered!
           </p>
           <br />
           <InitialQueryModal navigate={navigate} />
@@ -36,10 +35,9 @@ function AppCarousel(props) {
         />
 
         <Carousel.Caption>
-          <h3 className="heading-3">Need meal plan ideas?</h3>
+          <h3 className="heading-3">Looking for Meal Planning Inspiration?</h3>
           <p className="landing-page-p">
-            Not knowing what to cook is a pain. <br /> Let us do all the
-            thinking for you.
+            Eliminate the Dilemma of What to Cook <br /> We've Got You Covered!
           </p>
           <br />
           <InitialQueryModal navigate={navigate} />
@@ -53,10 +51,9 @@ function AppCarousel(props) {
         />
 
         <Carousel.Caption>
-          <h3 className="heading-3">Need meal plan ideas?</h3>
+          <h3 className="heading-3">Looking for Meal Planning Inspiration?</h3>
           <p className="landing-page-p">
-            Not knowing what to cook is a pain. <br /> Let us do all the
-            thinking for you.
+            Eliminate the Dilemma of What to Cook <br /> We've Got You Covered!
           </p>
           <br />
           <InitialQueryModal navigate={navigate} />

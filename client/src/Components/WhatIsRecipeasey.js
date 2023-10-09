@@ -32,7 +32,7 @@ const WhatIsRecipeasey = () => {
             alt="Timer"
           />
           <br />
-          <h1>3. Choose meal prep time preference</h1>
+          <h1>3. Choose a meal prep time preference</h1>
         </div>
         <div className="how-it-works-container-children ">
           <img
@@ -41,7 +41,7 @@ const WhatIsRecipeasey = () => {
             alt="Magnifying glass"
           />
           <br />
-          <h1>4. Browse through the recipes</h1>
+          <h1>4. Explore a variety of recipes</h1>
         </div>
         <div className="how-it-works-container-children ">
           <img
@@ -50,7 +50,7 @@ const WhatIsRecipeasey = () => {
             alt="SD card"
           />
           <br />
-          <h1>5. Save the recipe on your week planner</h1>
+          <h1>5. Save your favorite recipes onto your personal user dashboard</h1>
         </div>
         <div className="how-it-works-container-children ">
           <img
@@ -58,7 +58,7 @@ const WhatIsRecipeasey = () => {
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqnTx2Vks4A5nUJSzT3QCXhialqofIlyHaYQ&usqp=CAU"
             alt="Frying pan"
           />
-          <h1>6. Start cooking your chosen meals</h1>
+          <h1>6. Effortlessly arrange your favorite meals on a customizable calendar</h1>
         </div>
       </div>
     </div>

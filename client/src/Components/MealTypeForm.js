@@ -3,8 +3,8 @@ import React from "react";
 const mealTypes = [
   "select",
   "breakfast",
-  "appetizer",
-  "main course",
+  "lunch", // "appetizer"
+  "dinner", // "main course"
   "snack",
   "side dish",
   "drink",
@@ -13,9 +13,18 @@ const mealTypes = [
 
 const MealTypeForm = (props) => {
   let setMealType = props.setMealType;
+  
   const handleChange = (e) => {
     let selectedType = e.target.value;
-    setMealType(selectedType);
+    if (selectedType === "lunch") {
+      setMealType("appetizer")
+    } else if (selectedType === "dinner") {
+      setMealType("main course")
+    } else {
+      setMealType(selectedType);
+    }
+
+    
   };
   return (
     <form className="flex-for-form">
