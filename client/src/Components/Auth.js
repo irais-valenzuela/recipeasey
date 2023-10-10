@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
-import instance from '../Axios/AxiosInstance'
+import React, { useState, useContext } from "react";
+import instance from "../Axios/AxiosInstance";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate, Link } from "react-router-dom";
-// import axios from "axios";
 import { IsLoggedInContext } from "../App";
 
 const Auth = () => {
@@ -68,10 +67,7 @@ const Auth = () => {
       let token;
       try {
         if (signUpForm) {
-          let { data } = await instance.post(
-            "/login/auth/signup",
-            credentials
-          );
+          let { data } = await instance.post("/login/auth/signup", credentials);
           token = data.token;
         } else {
           let { data } = await instance.post("/login/auth", credentials);
@@ -81,11 +77,11 @@ const Auth = () => {
 
         const info = await getUserInfo(token);
         setUserInfo(info);
-        goToUserDashboard()
+        goToUserDashboard();
       } catch (err) {
         if (!username || !password) setError("Email and Password required");
         else if (err.response.status === 401)
-        setError("Incorrect username or password");
+          setError("Incorrect username or password");
         console.log(err);
       }
     };

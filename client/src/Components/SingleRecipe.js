@@ -5,7 +5,6 @@ import Spinner from "react-bootstrap/Spinner";
 import SimilarRecipes from "./SimilarRecipes";
 import AuthModal from "./AuthModal";
 import { IsLoggedInContext } from "../App";
-// import axios from "axios";
 import instance from "../Axios/AxiosInstance"
 import moment from "moment";
 

@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from "react";
-// import axios from "axios";
 import instance from '../Axios/AxiosInstance'
 import UserRecipes from "./UserRecipes";
 import { IsLoggedInContext } from "../App";

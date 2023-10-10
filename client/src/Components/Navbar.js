@@ -16,6 +16,7 @@ function NavBar() {
     window.localStorage.removeItem("token");
     window.localStorage.removeItem("RecipeId");
     window.localStorage.removeItem("savedRecipes");
+    window.localStorage.removeItem("formType");
     setLoggedIn(false);
   };
 

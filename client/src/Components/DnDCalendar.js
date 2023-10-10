@@ -1,6 +1,5 @@
 import Button from "react-bootstrap/Button";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useDrop } from "react-dnd";
 import { BsFillTrash3Fill } from "react-icons/bs";
 import instance from '../Axios/AxiosInstance';

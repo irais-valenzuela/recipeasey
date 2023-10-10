@@ -7,12 +7,13 @@ const AuthModal = (props) => {
   const { url, recipeId } = props;
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
+  
 
   const handleClose = () => {
     setShow(false);
     window.localStorage.setItem("Single Recipe Link", url);
     window.localStorage.setItem("RecipeId", recipeId);
-    navigate("/auth");
+    navigate("/auth",);
   };
   const handleShow = () => setShow(true);
 
@@ -31,12 +32,10 @@ const AuthModal = (props) => {
           Please log in or sign up
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Log in
-          </Button>
           <Button variant="primary" onClick={handleClose}>
-            Sign up
+            Log in/Sign up
           </Button>
+    
         </Modal.Footer>
       </Modal>
     </>

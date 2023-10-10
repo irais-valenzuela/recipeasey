@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
-// import axios from "axios";
 import instance from "../Axios/AxiosInstance"
 
 const Result = () => {

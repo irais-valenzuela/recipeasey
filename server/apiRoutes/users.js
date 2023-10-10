@@ -12,14 +12,6 @@ const {
   addIncomingRecipesToCalendar,
 } = require("../helperFunctions");
 
-// userRouter.get("/", async (req, res, next) => {
-//   try {
-//     const users = await User.findAll();
-//     res.send(users);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
 
 userRouter.get("/:token", async (req, res, next) => {
   try {
@@ -54,19 +46,10 @@ userRouter.post("/userRecipes/:token", async (req, res, next) => {
     const { title, id, dishTypes } = req.body;
     const sortNum = determineRecipeSortNum(dishTypes);
     const user = await User.byToken(token);
-    
-    console.log('USER', user)
-    console.log('USER.ID', user.id)
-
-    console.log("ID", id)
-    console.log("Body", req.body)
-    
-    // saying if in the UserRecipes it exists than say already saved need to use userId
+  
     const existingRecipe = !!(await UserRecipes.findOne({
       where: { recipeId: id, userId: user.id },
     }));
-
-    console.log('EXISTING RECIPE FOR USER', existingRecipe)
 
     if (existingRecipe === false) {
       const recipe = await UserRecipes.create({
