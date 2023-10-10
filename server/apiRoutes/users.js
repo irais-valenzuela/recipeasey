@@ -54,12 +54,16 @@ userRouter.post("/userRecipes/:token", async (req, res, next) => {
     const { title, id, dishTypes } = req.body;
     const sortNum = determineRecipeSortNum(dishTypes);
     const user = await User.byToken(token);
+    
+    console.log('USER', user)
+    console.log('USER.ID', user.id)
 
     console.log("ID", id)
     console.log("Body", req.body)
-
+    
+    // saying if in the UserRecipes it exists than say already saved need to use userId
     const existingRecipe = !!(await UserRecipes.findOne({
-      where: { recipeId: id },
+      where: { recipeId: id, userId: user.id },
     }));
 
     console.log('EXISTING RECIPE FOR USER', existingRecipe)

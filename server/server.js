@@ -32,6 +32,10 @@ app.get("", function (req, res) {
 });
 
 
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+// });
+
 // handles 500 errors
 app.use((err, req, res, next) => {
   console.error(err);
