@@ -56,7 +56,7 @@ userRouter.post("/userRecipes/:token", async (req, res, next) => {
     const user = await User.byToken(token);
 
     console.log("ID", id)
-    console.log("Body", body)
+    console.log("Body", req.body)
 
     const existingRecipe = !!(await UserRecipes.findOne({
       where: { recipeId: id },
