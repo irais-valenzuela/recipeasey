@@ -55,9 +55,14 @@ userRouter.post("/userRecipes/:token", async (req, res, next) => {
     const sortNum = determineRecipeSortNum(dishTypes);
     const user = await User.byToken(token);
 
+    console.log("ID", id)
+    console.log("Body", body)
+
     const existingRecipe = !!(await UserRecipes.findOne({
       where: { recipeId: id },
     }));
+
+    console.log('EXISTING RECIPE FOR USER', existingRecipe)
 
     if (existingRecipe === false) {
       const recipe = await UserRecipes.create({

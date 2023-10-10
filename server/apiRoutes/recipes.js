@@ -47,7 +47,7 @@ recipesRouter.get("/similarRecipes/:recipeId", async (req, res, next) => {
   try {
     const { recipeId } = req.params;
     const { data } = await axios.get(
-      `https://api.spoonacular.com/recipes/${recipeId}/similar?apiKey=${apiKey}&number=1`
+      `https://api.spoonacular.com/recipes/${recipeId}/similar?apiKey=${apiKey}&number=2`
     );
     res.send(data);
   } catch (error) {
