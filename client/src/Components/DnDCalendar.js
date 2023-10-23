@@ -36,7 +36,6 @@ const DayDropArea = ({ day, addRecipeToDay, recipeByDay, deleteFromDay }) => {
   };
 
   const handleClick = (recipeId) => {
-    console.log("recipeId", recipeId);
     navigate("/singleRecipe", { state: { query: { recipeId } } });
   };
 
@@ -52,6 +51,7 @@ const DayDropArea = ({ day, addRecipeToDay, recipeByDay, deleteFromDay }) => {
                 >
                   {recipe.recipeName}
                 </p>
+                <br />
                 <span className="meal-type">{recipe.type}</span>
                 <br />
                 <BsFillTrash3Fill

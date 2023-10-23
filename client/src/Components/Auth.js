@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate, Link } from "react-router-dom";
 import { IsLoggedInContext } from "../App";
+import LoadingButton from "./LoadingButton";
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ const Auth = () => {
   const [userInfo, setUserInfo] = useState("");
   const [error, setError] = useState("");
   const [signUpForm, setSignUpForm] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const getUserInfo = async (token) => {
     try {
@@ -60,6 +62,7 @@ const Auth = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     let credentials = { username, password };
 
@@ -79,10 +82,10 @@ const Auth = () => {
         setUserInfo(info);
         goToUserDashboard();
       } catch (err) {
+        setLoading(false);
         if (!username || !password) setError("Email and Password required");
         else if (err.response.status === 401)
           setError("Incorrect username or password");
-        console.log(err);
       }
     };
     signIn();
@@ -129,16 +132,19 @@ const Auth = () => {
               placeholder="enter password"
             />
           </Form.Group>
-
           <br />
           <div className="auth-submit-center">
-            <Button
-              variant="primary"
-              className="auth-submit-button"
-              type="submit"
-            >
-              Submit
-            </Button>
+            {loading ? (
+              <LoadingButton />
+            ) : (
+              <Button
+                variant="primary"
+                className="auth-submit-button"
+                type="submit"
+              >
+                Submit
+              </Button>
+            )}
             <br />
           </div>
           {error && <p className="auth-submit-error">{error}</p>}
