@@ -2,7 +2,8 @@ import Button from "react-bootstrap/Button";
 import React, { useState, useEffect } from "react";
 import { useDrop } from "react-dnd";
 import { BsFillTrash3Fill } from "react-icons/bs";
-import instance from '../Axios/AxiosInstance';
+import instance from "../Axios/AxiosInstance";
+import { useNavigate } from "react-router-dom";
 
 const daysOfTheWeek = [
   "Monday",
@@ -15,6 +16,7 @@ const daysOfTheWeek = [
 ];
 
 const DayDropArea = ({ day, addRecipeToDay, recipeByDay, deleteFromDay }) => {
+  const navigate = useNavigate();
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "String",
     drop: (item) => addRecipeToDay(item.id, day),
@@ -33,23 +35,30 @@ const DayDropArea = ({ day, addRecipeToDay, recipeByDay, deleteFromDay }) => {
     deleteFromDay(recipeId, day);
   };
 
+  const handleClick = (recipeId) => {
+    console.log("recipeId", recipeId);
+    navigate("/singleRecipe", { state: { query: { recipeId } } });
+  };
+
   return (
     <div ref={drop} className="day-of-the-week-drag-area">
       {recipeByDay[day] && dayArray !== null
         ? dayArray.map((recipe) => {
             return (
               <div key={recipe.recipeId}>
-                <p className="no-p-styles">
+                <p
+                  className="no-p-styles underline"
+                  onClick={() => handleClick(recipe.recipeId)}
+                >
                   {recipe.recipeName}
-                  <br />
-                  <span className="meal-type">{recipe.type}</span>
-                  <br />
-                  <BsFillTrash3Fill
-                    size={10}
-                    className="trash-can"
-                    onClick={() => handleRemove(recipe.recipeId, day)}
-                  />
                 </p>
+                <span className="meal-type">{recipe.type}</span>
+                <br />
+                <BsFillTrash3Fill
+                  size={20}
+                  className="trash-can"
+                  onClick={() => handleRemove(recipe.recipeId, day)}
+                />
               </div>
             );
           })

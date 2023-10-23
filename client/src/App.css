@@ -644,6 +644,14 @@ h5 {
   align-self: flex-end;
 }
 
+.underline {
+  text-decoration: underline;
+}
+
+.underline:hover {
+  color: purple
+}
+
 .userdashboard-recipes {
   font-weight: bold;
   box-shadow: #282c34;
@@ -668,12 +676,14 @@ h5 {
 .trash-can {
   margin: 5px;
   text-align: center;
+  color: gray;
 }
 .no-p-styles {
   background-color: rgb(226, 181, 255);
   color: black;
   font-size: 18px;
   text-align: center;
+  margin: 0;
 }
 .no-p-styles2 {
   color: red;
